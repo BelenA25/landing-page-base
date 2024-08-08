@@ -14,15 +14,21 @@ const iconUrls = [
 export default function Home() {
   return (
     <>
-      <TypographyH2>This is the first tittle</TypographyH2>
-      <TypographyP>This is a paragraph</TypographyP>
-      <div className="flex justify-center my-8">
-        <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
-      </div>
-      <CallToAction></CallToAction>
-      <TypographyH2>This paragraph belongs to the icon carousel</TypographyH2>
-      <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit praesentium possimus reiciendis est fuga amet? Ipsum quas exercitationem, accusamus atque vel, quis porro iusto, consequatur ut dolores illum voluptas. Accusamus!</TypographyP>
-      <IconCarousel icons={iconUrls}></IconCarousel>
+      <section className="FirstView">
+        <TypographyH2>This is the first tittle</TypographyH2>
+        <TypographyP>This is a paragraph</TypographyP>
+        <div className="flex justify-center my-8">
+          <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
+        </div>
+        <CallToAction></CallToAction>
+        <TypographyH2>This paragraph belongs to the icon carousel</TypographyH2>
+        <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit praesentium possimus reiciendis est fuga amet? Ipsum quas exercitationem, accusamus atque vel, quis porro iusto, consequatur ut dolores illum voluptas. Accusamus!</TypographyP>
+        <IconCarousel icons={iconUrls}></IconCarousel>
+      </section>
+      <section className="SecondView">
+        <TypographyH2>This is the second tittle</TypographyH2>
+        <TypographyP>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, officia hic excepturi, minima assumenda unde est suscipit iure quis enim similique! Porro libero illum architecto expedita vel blanditiis corporis nesciunt.</TypographyP>
+      </section>
     </>
   );
 }
