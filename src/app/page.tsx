@@ -1,6 +1,15 @@
 import CallToAction from "@/components/callToAction";
+import { IconCarousel } from "@/components/iconCarousel";
 import { TypographyH2, TypographyP } from "@/components/ui/typography";
 import Image from "next/image";
+
+const iconUrls = [
+  "/assets/icon1.jpg",
+  "/assets/icon2.jpg",
+  "/assets/icon3.jpg",
+  "/assets/icon4.jpg",
+  "/assets/icon5.jpg"
+];
 
 export default function Home() {
   return (
@@ -11,6 +20,9 @@ export default function Home() {
         <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
       </div>
       <CallToAction></CallToAction>
+      <TypographyH2>This paragraph belongs to the icon carousel</TypographyH2>
+      <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit praesentium possimus reiciendis est fuga amet? Ipsum quas exercitationem, accusamus atque vel, quis porro iusto, consequatur ut dolores illum voluptas. Accusamus!</TypographyP>
+      <IconCarousel icons={iconUrls}></IconCarousel>
     </>
   );
 }
