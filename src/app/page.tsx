@@ -1,4 +1,5 @@
-import { TypographyH2, TypographyP } from "@/components/typography";
+import CallToAction from "@/components/callToAction";
+import { TypographyH2, TypographyP } from "@/components/ui/typography";
 import Image from "next/image";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <div className="flex justify-center my-8">
         <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
       </div>
+      <CallToAction></CallToAction>
     </>
   );
 }
