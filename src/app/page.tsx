@@ -1,6 +1,7 @@
 import CallToAction from "@/components/callToAction";
 import { IconCarousel } from "@/components/iconCarousel";
 import { TypographyH2, TypographyP } from "@/components/ui/typography";
+import { VideoSection } from "@/components/videoSection";
 import Image from "next/image";
 
 const iconUrls = [
@@ -28,6 +29,7 @@ export default function Home() {
       <section className="SecondView">
         <TypographyH2>This is the second tittle</TypographyH2>
         <TypographyP>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, officia hic excepturi, minima assumenda unde est suscipit iure quis enim similique! Porro libero illum architecto expedita vel blanditiis corporis nesciunt.</TypographyP>
+        <VideoSection></VideoSection>
       </section>
     </>
   );
