@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <section className="FirstView">
         <TypographyH2>This is the first tittle</TypographyH2>
-        <TypographyP>This is a paragraph</TypographyP>
+        <TypographyP>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, aut obcaecati tempora, dicta vitae, atque sequi voluptas non praesentium labore iste officiis! Adipisci asperiores magnam a consequatur blanditiis, velit ducimus.</TypographyP>
         <div className="flex justify-center my-8">
           <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
         </div>
