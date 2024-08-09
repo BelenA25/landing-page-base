@@ -27,9 +27,15 @@ export default function Home() {
         <IconCarousel icons={iconUrls}></IconCarousel>
       </section>
       <section className="SecondView">
-        <TypographyH2>This is the second tittle</TypographyH2>
-        <TypographyP>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, officia hic excepturi, minima assumenda unde est suscipit iure quis enim similique! Porro libero illum architecto expedita vel blanditiis corporis nesciunt.</TypographyP>
-        <VideoSection></VideoSection>
+        <section className="VideoSection">
+          <TypographyH2>This is the second tittle</TypographyH2>
+          <TypographyP>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, officia hic excepturi, minima assumenda unde est suscipit iure quis enim similique! Porro libero illum architecto expedita vel blanditiis corporis nesciunt.</TypographyP>
+          <VideoSection></VideoSection>
+        </section>
+        <section className="CardFeatures">
+          <TypographyH2>This is the third tittle</TypographyH2>
+          <TypographyP>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla recusandae error porro aliquam deserunt quasi voluptatibus quo, odit id tempore quisquam in dolorem accusantium odio ullam voluptates fugit neque soluta.</TypographyP>
+        </section>
       </section>
     </>
   );
