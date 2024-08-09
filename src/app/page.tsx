@@ -1,6 +1,7 @@
 import CallToAction from "@/components/callToAction";
 import Features from "@/components/features";
 import { IconCarousel } from "@/components/iconCarousel";
+import { TableSection } from "@/components/tableSection";
 import TestimonialSection from "@/components/testimonialSection";
 import { TypographyH2, TypographyP } from "@/components/ui/typography";
 import { VideoSection } from "@/components/videoSection";
@@ -44,6 +45,9 @@ export default function Home() {
         <section className="Testimonials">
           <TestimonialSection></TestimonialSection>
         </section>
+      </section>
+      <section className="FourthView">
+        <TableSection></TableSection>
       </section>
     </>
   );
