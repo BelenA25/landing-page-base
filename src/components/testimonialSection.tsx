@@ -1,13 +1,15 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { TypographyH2 } from "./ui/typography";
 
 export default function Testimonials() {
   return (
     <section className="my-12 mx-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-semibold text-right w-1/3">
+        <div className="text-right w-1/3">
+         <TypographyH2 alignment="right">
           Estas son las historias de nuestros clientes
-        </h2>
-
+        </TypographyH2>
+        </div>
         <div className="flex-1 relative ml-8">
           <Carousel className="relative">
             <CarouselPrevious className="absolute z-10  left-0 top-1/2 transform -translate-y-1/2" />
