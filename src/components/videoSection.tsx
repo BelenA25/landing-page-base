@@ -2,7 +2,7 @@ import { TypographyH2, TypographyP } from "./ui/typography";
 
 export function VideoSection() {
     return (
-        <section className="video-section py-8 bg-gray-100">
+        <section className="video-section py-8">
             <div className="container mx-auto px-4">
                 <TypographyH2>Video display</TypographyH2>
                 <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam, quibusdam quod id beatae tempore vitae asperiores impedit in officia nulla aspernatur consequuntur doloremque saepe corrupti repellendus, sint repudiandae odio!</TypographyP>

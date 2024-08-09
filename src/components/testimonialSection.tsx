@@ -4,7 +4,7 @@ import { TypographyH2, TypographyP } from "./ui/typography";
 export default function Testimonials() {
     return (
         <section className="my-12 mx-8">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between max-w-screen-lg mx-auto">
                 <div className="text-right w-1/3">
                     <TypographyH2 alignment="right">
                         These are the stories from our clients

@@ -20,11 +20,11 @@ export default function Home() {
       <section className="FirstView">
         <TypographyH2>This is the first tittle</TypographyH2>
         <TypographyP>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, aut obcaecati tempora, dicta vitae, atque sequi voluptas non praesentium labore iste officiis! Adipisci asperiores magnam a consequatur blanditiis, velit ducimus.</TypographyP>
-        <div className="flex justify-center my-8">
-          <Image src="/assets/computer.png" alt="Computer" width={400} height={200} className="object-contain" />
+        <div className="flex justify-center my-4">
+          <Image src="/assets/computer.png" alt="Computer" width={400} height={100} className="object-contain" />
         </div>
         <CallToAction></CallToAction>
-        <TypographyH2>This paragraph belongs to the icon carousel</TypographyH2>
+        <TypographyH2>This title belongs to the icon carousel</TypographyH2>
         <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit praesentium possimus reiciendis est fuga amet? Ipsum quas exercitationem, accusamus atque vel, quis porro iusto, consequatur ut dolores illum voluptas. Accusamus!</TypographyP>
         <IconCarousel icons={iconUrls}></IconCarousel>
       </section>

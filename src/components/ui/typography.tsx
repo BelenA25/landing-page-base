@@ -14,7 +14,7 @@ export function TypographyH2({ children, alignment = "center" }: TypographyProps
 
 export function TypographyP({ children, alignment = "center", fontWeight = "normal" }: TypographyProps) {
     return (
-        <p className={`leading-7 [&:not(:first-child)]:mt-6 text-${alignment} font-${fontWeight} mx-auto max-w-screen-lg`}>
+        <p className={`leading-7 [&:not(:first-child)]:mt-6 text-${alignment} font-${fontWeight} mx-auto max-w-screen-lg  my-4`}>
             {children}
         </p>
     );
