@@ -18,7 +18,7 @@ export function TypographyH2({ children }: TypographyH2Props) {
 
 export function TypographyP({ children }: TypographyPProps) {
     return (
-        <p className="leading-7 [&:not(:first-child)]:mt-6 text-center mx-4">
+        <p className="leading-7 [&:not(:first-child)]:mt-6 text-center mx-8">
             {children}
         </p>
     );

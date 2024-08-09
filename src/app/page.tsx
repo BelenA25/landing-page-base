@@ -1,5 +1,7 @@
 import CallToAction from "@/components/callToAction";
+import Features from "@/components/features";
 import { IconCarousel } from "@/components/iconCarousel";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TypographyH2, TypographyP } from "@/components/ui/typography";
 import { VideoSection } from "@/components/videoSection";
 import Image from "next/image";
@@ -35,6 +37,7 @@ export default function Home() {
         <section className="CardFeatures">
           <TypographyH2>This is the third tittle</TypographyH2>
           <TypographyP>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla recusandae error porro aliquam deserunt quasi voluptatibus quo, odit id tempore quisquam in dolorem accusantium odio ullam voluptates fugit neque soluta.</TypographyP>
+          <Features></Features>
         </section>
       </section>
     </>
