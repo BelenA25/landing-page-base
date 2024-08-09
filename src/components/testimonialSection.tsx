@@ -1,5 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { TypographyH2 } from "./ui/typography";
+import { TypographyH2, TypographyP } from "./ui/typography";
 
 export default function Testimonials() {
     return (
@@ -15,16 +15,16 @@ export default function Testimonials() {
                         <CarouselPrevious className="absolute z-10  left-0 top-1/2 transform -translate-y-1/2" />
                         <CarouselContent>
                             <CarouselItem className="p-8 border rounded-lg shadow-md">
-                                <p className="text-center">"This product changed my life. I recommend it 100%!"</p>
-                                <p className="text-center font-semibold mt-4">- Client 1</p>
+                                <TypographyP alignment="center">"This product changed my life. I recommend it 100%!"</TypographyP>
+                                <TypographyP alignment="center" fontWeight="semibold">- Client 1</TypographyP>
                             </CarouselItem>
                             <CarouselItem className="p-8 border rounded-lg shadow-md">
-                                <p className="text-center">"The customer service was exceptional."</p>
-                                <p className="text-center font-semibold mt-4">- Client 2</p>
+                                <TypographyP alignment="center">"The customer service was exceptional."</TypographyP>
+                                <TypographyP alignment="center" fontWeight="semibold">- Client 2</TypographyP>
                             </CarouselItem>
                             <CarouselItem className="p-8 border rounded-lg shadow-md">
-                                <p className="text-center">"Great quality and fast delivery!"</p>
-                                <p className="text-center font-semibold mt-4">- Client 3</p>
+                                <TypographyP alignment="center">"Great quality and fast delivery!"</TypographyP>
+                                <TypographyP alignment="center" fontWeight="semibold">- Client 3</TypographyP>
                             </CarouselItem>
                         </CarouselContent>
                         <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2" />
