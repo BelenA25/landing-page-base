@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { TypographyH2 } from "@/components/ui/typography";
+import Typography from "./Typography/typography";
 
 export default function CallToAction() {
     return (
         <div className="border p-6 rounded-lg max-w-screen-lg mx-auto">
-            <TypographyH2>What do you need?</TypographyH2>
+            <Typography tag="h2">What do you need?</Typography>
             <div className="grid grid-cols-2 gap-4 mt-6">
                 <Button variant="outline">Option 1</Button>
                 <Button variant="outline">Option 2</Button>

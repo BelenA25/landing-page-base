@@ -1,11 +1,12 @@
-import { TypographyH2, TypographyP } from "./ui/typography";
+import Typography from "./Typography/typography";
+
 
 export function VideoSection() {
     return (
         <section className="video-section py-8">
             <div className="container mx-auto px-4">
-                <TypographyH2>Video display</TypographyH2>
-                <TypographyP>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam, quibusdam quod id beatae tempore vitae asperiores impedit in officia nulla aspernatur consequuntur doloremque saepe corrupti repellendus, sint repudiandae odio!</TypographyP>
+                <Typography tag="h2">Video display</Typography>
+                <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam, quibusdam quod id beatae tempore vitae asperiores impedit in officia nulla aspernatur consequuntur doloremque saepe corrupti repellendus, sint repudiandae odio!</Typography>
                 <div className="flex justify-center">
                     <div className="relative" style={{ maxWidth: '640px', width: '100%', aspectRatio: '16 / 9' }}>
                         <iframe
@@ -19,7 +20,5 @@ export function VideoSection() {
                 </div>
             </div>
         </section>
-
-
     )
 }

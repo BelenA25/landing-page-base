@@ -1,11 +1,11 @@
 import * as React from "react";
 import { createClient } from '@/utils/supabase/server';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import Typography from "./Typography/typography";
 
 export default async function PlanComparison() {
   const supabase = createClient();
 
-  // Obtener los datos de los planes
   const { data: plans } = await supabase.from("Plan").select("*");
   const { data: features } = await supabase.from("plan_features").select(`
     plan_id,
@@ -19,24 +19,24 @@ export default async function PlanComparison() {
   `);
 
   if (!plans || plans.length === 0) {
-    return <p>No plans found</p>;
+    return <Typography>No plans found</Typography>;
   }
 
   if (!features || features.length === 0) {
-    return <p>No join features found</p>;
+    return <Typography>No join features found</Typography>;
   }
 
   if (!allFeatures || allFeatures.length === 0) {
-    return <p>No features found</p>;
+    return <Typography>No features found</Typography>;
   }
 
   const uniqueFeatures = allFeatures.map(feature => feature.titleFeature);
 
   return (
     <section className="p-4 mx-auto max-w-screen-lg">
-      <h2 className="text-center text-2xl font-semibold mb-6">
+      <Typography tag="h2">
         Choose the best payment for your online store
-      </h2>
+      </Typography>
       <Table>
         <TableCaption className="text-center">Payment Gateway Comparison</TableCaption>
         <TableHeader>

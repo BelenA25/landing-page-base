@@ -1,22 +1,22 @@
 import { createClient } from '@/utils/supabase/server'; 
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { TypographyH2, TypographyP } from "./ui/typography";
+import Typography from "./Typography/typography";
 
 export default async function Testimonials() {
     const supabase = createClient();
     const { data: testimonials } = await supabase.from("Testimonial").select();
 
     if (!testimonials) {
-        return <p>No testimonials found</p>;
+        return <Typography>No testimonials found</Typography>;
     }
 
     return (
         <section className="my-12 mx-8">
             <div className="flex items-center justify-between max-w-screen-lg mx-auto">
                 <div className="text-right w-1/3">
-                    <TypographyH2 alignment="right">
+                    <Typography tag="h2" alignment="right">
                         These are the stories from our clients
-                    </TypographyH2>
+                    </Typography>
                 </div>
                 <div className="flex-1 relative ml-8">
                     <Carousel className="relative">
@@ -24,12 +24,12 @@ export default async function Testimonials() {
                         <CarouselContent>
                             {testimonials.map((testimonial, index) => (
                                 <CarouselItem key={index} className="p-8 border rounded-lg shadow-md">
-                                    <TypographyP alignment="center">
+                                    <Typography tag='p' alignment="center">
                                         "{testimonial.clientTestimonial}"
-                                    </TypographyP>
-                                    <TypographyP alignment="center" fontWeight="semibold">
+                                    </Typography>
+                                    <Typography tag='p' alignment="center" fontWeight='semibold'>
                                         - {testimonial.clientName}
-                                    </TypographyP>
+                                    </Typography>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>

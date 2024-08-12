@@ -1,13 +1,14 @@
 import * as React from "react";
 import { createClient } from '@/utils/supabase/server';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import Typography from "./Typography/typography";
 
 export default async function Features() {
   const supabase = createClient();
   const { data: features } = await supabase.from("Feature").select();
 
   if (!features || features.length === 0) {
-    return <p>No features found</p>;
+    return <Typography>No features found</Typography>;
   }
 
   return (
