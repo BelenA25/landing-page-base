@@ -6,6 +6,9 @@ import TestimonialSection from "@/components/testimonialSection";
 import { TypographyH2, TypographyP } from "@/components/ui/typography";
 import { VideoSection } from "@/components/videoSection";
 import Image from "next/image";
+import { createClient } from '@/utils/supabase/server';
+
+
 
 const iconUrls = [
   "/assets/icon1.jpg",
@@ -15,7 +18,10 @@ const iconUrls = [
   "/assets/icon5.jpg"
 ];
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClient();
+  const { data: Testimonials } = await supabase.from("Testimonial").select();
+
   return (
     <>
       <section className="FirstView">
