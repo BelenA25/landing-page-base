@@ -1,5 +1,5 @@
-
-import { createClient } from '@/utils/supabase/server'; import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { createClient } from '@/utils/supabase/server'; 
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { TypographyH2, TypographyP } from "./ui/typography";
 
 export default async function Testimonials() {
