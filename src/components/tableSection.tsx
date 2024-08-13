@@ -34,7 +34,7 @@ export default async function PlanComparison() {
 
   return (
     <section className="p-4 mx-auto max-w-screen-lg">
-      <Typography tag="h2">
+      <Typography tag="h2" fontWeight="bold">
         Choose the best payment for your online store
       </Typography>
       <Table>

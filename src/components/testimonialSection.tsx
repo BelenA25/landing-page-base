@@ -25,7 +25,7 @@ export default async function Testimonials() {
                             {testimonials.map((testimonial, index) => (
                                 <CarouselItem key={index} className="p-8 border rounded-lg shadow-md">
                                     <Typography tag='p' alignment="center">
-                                        "{testimonial.clientTestimonial}"
+                                    &quot;{testimonial.clientTestimonial}&quot;
                                     </Typography>
                                     <Typography tag='p' alignment="center" fontWeight='semibold'>
                                         - {testimonial.clientName}
