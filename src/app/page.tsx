@@ -20,15 +20,6 @@ export default async function Home() {
 
   return (
     <>
-      <Head>
-        <title>Landing page base</title>
-        <meta property="og:title" content="Landing page base" />
-        <meta property="og:description" content="This is the description of the Landing page base" />
-        <meta property="og:image" content="https://i.imghippo.com/files/Ej8Ot1723754871.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-      </Head>
       <section className="FirstView">
         <Typography tag="h2" fontWeight="bold">This is the first tittle</Typography>
         <Typography tag="p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, aut obcaecati tempora, dicta vitae, atque sequi voluptas non praesentium labore iste officiis! Adipisci asperiores magnam a consequatur blanditiis, velit ducimus.</Typography>
