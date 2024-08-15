@@ -4,9 +4,9 @@ import { IconCarousel } from "@/components/iconCarousel";
 import TestimonialSection from "@/components/testimonialSection";
 import { VideoSection } from "@/components/videoSection";
 import Image from "next/image";
-import { createClient } from '@/utils/supabase/server';
 import TableSection from "@/components/tableSection";
 import Typography from "@/components/Typography/typography";
+import Head from "next/head";
 
 
 
@@ -19,11 +19,15 @@ const iconUrls = [
 ];
 
 export default async function Home() {
-  const supabase = createClient();
-  const { data: Testimonials } = await supabase.from("Testimonial").select();
 
   return (
     <>
+      <Head>
+        <title>Landing page base</title>
+        <meta property="og:title" content="Landing page base" />
+        <meta property="og:description" content="This is a Landing page base" />
+        <meta property="og:image" content="https://i.imghippo.com/files/Ej8Ot1723754871.png" />
+      </Head>
       <section className="FirstView">
         <Typography tag="h2" fontWeight="bold">This is the first tittle</Typography>
         <Typography tag="p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, aut obcaecati tempora, dicta vitae, atque sequi voluptas non praesentium labore iste officiis! Adipisci asperiores magnam a consequatur blanditiis, velit ducimus.</Typography>

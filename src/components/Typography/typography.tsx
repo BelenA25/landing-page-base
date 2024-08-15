@@ -29,11 +29,7 @@ const Typography = ({
     };
 
     return (
-        <S.DynamicTypography 
-            tag={tag} 
-            style={dynamicStyles} 
-            className="max-w-screen-lg"
-        >
+        <S.DynamicTypography tag={tag} style={dynamicStyles} className="max-w-screen-lg">
             {children}
         </S.DynamicTypography>
     );
