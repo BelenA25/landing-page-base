@@ -1,29 +1,32 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import Typography from "./Typography/typography";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
+import { createClient } from "@/utils/supabase/server";
 
-export default function CallToAction() {
-    const router = useRouter();
-    
-    const handleNavigation = (optionId: string) => {
-        router.push(`/option/${optionId}`);
-    };
+export default async function CallToAction() {
+    const supabase = createClient();
+
+    const { data: products, error } = await supabase
+        .from('Product')
+        .select('id, name');
+
+    if (error) {
+        return <Typography tag="p">Error loading data: {error.message}</Typography>;
+    }
+
+    if (!products) {
+        return <Typography tag="p">No products found</Typography>;
+    }
 
     return (
         <div className="border p-6 rounded-lg max-w-screen-lg mx-auto">
             <Typography tag="h2">What do you need?</Typography>
             <div className="grid grid-cols-2 gap-4 mt-6">
-                <Button variant="outline" onClick={() => handleNavigation('1')}>Option 1</Button>
-                <Button variant="outline" onClick={() => handleNavigation('2')}>Option 2</Button>
-                <Button variant="outline" onClick={() => handleNavigation('3')}>Option 3</Button>
-                <Button variant="outline" onClick={() => handleNavigation('4')}>Option 4</Button>
-                <Button variant="outline" onClick={() => handleNavigation('5')}>Option 5</Button>
-                <Button variant="outline" onClick={() => handleNavigation('6')}>Option 6</Button>
-            </div>
-            <div className="flex justify-center items-center">
-                <Button className="mt-4 flex justify-center items-center" variant="default">Action button</Button>
+                {products.map((product) => (
+                    <Link key={product.id} href={`/option/${product.id}`} passHref>
+                        <Button variant="outline">{product.name}</Button>
+                    </Link>
+                ))}
             </div>
         </div>
     );

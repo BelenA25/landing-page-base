@@ -1,27 +1,32 @@
+import Typography from "@/components/Typography/typography";
 import { createClient } from "@/utils/supabase/server";
+import Image from "next/image";
 
 export default async function Option({ params }: { params: { optionId: string } }) {
     const supabase = createClient();
-    
+
     const { data: productData, error } = await supabase
         .from('Product')
-        .select('name, description, image_link') 
+        .select('name, description, image_link')
         .eq('id', params.optionId)
         .single();
 
     if (error) {
-        return <div>Error loading data: {error.message}</div>;
+        return <Typography tag="p">Error loading data: {error.message}</Typography>;
     }
 
     if (!productData) {
-        return <div>No product found with this ID.</div>;
+        return <Typography tag="p">No product found with this ID.</Typography>;
     }
 
     return (
         <div className="p-6 max-w-screen-md mx-auto">
-            <img src={productData.image_link}className="w-full h-auto" />
-            <h1 className="text-2xl font-bold mt-4">{productData.name}</h1>
-            <p className="mt-2">{productData.description}</p>
+            <div className="flex justify-center items-center mx-5 my-5">
+                <Image width={400} height={200} src={productData.image_link} alt={""} className="" />
+            </div>
+
+            <Typography tag="h1">{productData.name}</Typography>
+            <Typography tag="p">{productData.description}</Typography>
         </div>
     );
 }
