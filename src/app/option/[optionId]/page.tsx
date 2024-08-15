@@ -22,12 +22,6 @@ export default async function Option({ params }: { params: { optionId: string } 
 
     return (
         <>
-            <Head>
-                <title>{productData.name}</title>
-                <meta property="og:title" content={productData.name} />
-                <meta property="og:description" content={productData.description} />
-                <meta property="og:image" content={productData.image_link} />
-            </Head>
             <div className="p-6 max-w-screen-md mx-auto">
                 <div className="flex justify-center items-center mx-5 my-5">
                     <Image width={400} height={200} src={productData.image_link} alt={""} className="" />
