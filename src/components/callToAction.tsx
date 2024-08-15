@@ -24,7 +24,7 @@ export default async function CallToAction() {
             <div className="grid grid-cols-2 gap-4 mt-6">
                 {products.map((product) => (
                     <Link key={product.id} href={`/option/${product.id}`} passHref>
-                        <Button variant="outline">{product.name}</Button>
+                        <Button variant="outline" className="w-full">{product.name}</Button>
                     </Link>
                 ))}
             </div>
