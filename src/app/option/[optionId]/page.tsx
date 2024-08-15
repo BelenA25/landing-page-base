@@ -1,6 +1,5 @@
 import Typography from "@/components/Typography/typography";
 import { createClient } from "@/utils/supabase/server";
-import Head from "next/head";
 import Image from "next/image";
 
 export default async function Option({ params }: { params: { optionId: string } }) {
@@ -26,7 +25,6 @@ export default async function Option({ params }: { params: { optionId: string } 
                 <div className="flex justify-center items-center mx-5 my-5">
                     <Image width={400} height={200} src={productData.image_link} alt={""} className="" />
                 </div>
-
                 <Typography tag="h1">{productData.name}</Typography>
                 <Typography tag="p">{productData.description}</Typography>
             </div>
