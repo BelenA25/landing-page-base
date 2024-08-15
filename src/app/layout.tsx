@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Landing page base",
-  description: "This is a landing page base",
+  description: "This is a landing page base.",
   openGraph: {
     title: "Landing page base",
     description: "This is the description of a landing page base",

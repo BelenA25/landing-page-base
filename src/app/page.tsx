@@ -8,8 +8,6 @@ import TableSection from "@/components/tableSection";
 import Typography from "@/components/Typography/typography";
 import Head from "next/head";
 
-
-
 const iconUrls = [
   "/assets/icon1.jpg",
   "/assets/icon2.jpg",
@@ -25,7 +23,7 @@ export default async function Home() {
       <Head>
         <title>Landing page base</title>
         <meta property="og:title" content="Landing page base" />
-        <meta property="og:description" content="This is the description of the a Landing page base" />
+        <meta property="og:description" content="This is the description of the Landing page base" />
         <meta property="og:image" content="https://i.imghippo.com/files/Ej8Ot1723754871.png" />
         <meta property="og:type" content="website" />
         <meta property="og:image:width" content="1200" />
