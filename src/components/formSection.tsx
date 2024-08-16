@@ -76,7 +76,7 @@ export function ContactForm() {
                 </form>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                <AlertDialogContent>
+                <AlertDialogContent className="max-w-lg w-full mx-auto p-4 sm:p-6 md:p-8 rounded-lg bg-white shadow-md">
                     <AlertDialogHeader>
                         <AlertDialogTitle>Thank you for contacting us!</AlertDialogTitle>
                         <AlertDialogDescription>
