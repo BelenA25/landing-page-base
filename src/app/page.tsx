@@ -6,7 +6,7 @@ import { VideoSection } from "@/components/videoSection";
 import Image from "next/image";
 import TableSection from "@/components/tableSection";
 import Typography from "@/components/Typography/typography";
-import Head from "next/head";
+import { Metadata } from "next";
 
 const iconUrls = [
   "/assets/icon1.jpg",
@@ -16,6 +16,23 @@ const iconUrls = [
   "/assets/icon5.jpg"
 ];
 
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    openGraph: {
+      title: "Landing page base",
+      description: "This is a landing page base description.",
+      images: [
+        {
+          url: "https://i.imghippo.com/files/Ej8Ot1723754871.png",
+          width: 800,
+          height: 600,
+          alt: "Image",
+        },
+      ],
+      type: "website",
+    },
+  };
+}
 export default async function Home() {
 
   return (

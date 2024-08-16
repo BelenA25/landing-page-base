@@ -1,23 +1,50 @@
 import Typography from "@/components/Typography/typography";
 import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
+import { Metadata } from "next";
 
-export default async function Option({ params }: { params: { optionId: string } }) {
+interface Product {
+    name: string;
+    description: string;
+    image_link: string;
+}
+
+async function products(optionId: string): Promise<Product> {
     const supabase = createClient();
 
     const { data: productData, error } = await supabase
         .from('Product')
         .select('name, description, image_link')
-        .eq('id', params.optionId)
+        .eq('id', optionId)
         .single();
 
-    if (error) {
-        return <Typography tag="p">Error loading data: {error.message}</Typography>;
+    if (error || !productData) {
+        throw new Error(error?.message || "Product not found");
     }
 
-    if (!productData) {
-        return <Typography tag="p">No product found with this ID.</Typography>;
-    }
+    return productData as Product;
+}
+
+export async function generateMetadata({ params }: { params: { optionId: string } }): Promise<Metadata> {
+    const productData = await products(params.optionId);
+    return {
+        openGraph: {
+            title: productData.name,
+            description: productData.description,
+            images: [
+                {
+                    url: productData.image_link,
+                    width: 800,
+                    height: 600
+                },
+            ],
+            type: "website",
+        },
+    };
+}
+
+export default async function Option({ params }: { params: { optionId: string } }) {
+    const productData = await products(params.optionId);
 
     return (
         <>
