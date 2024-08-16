@@ -7,6 +7,7 @@ import Image from "next/image";
 import TableSection from "@/components/tableSection";
 import Typography from "@/components/Typography/typography";
 import { Metadata } from "next";
+import { ContactForm } from "@/components/formSection";
 
 const iconUrls = [
   "/assets/icon1.jpg",
@@ -67,6 +68,10 @@ export default async function Home() {
       </section>
       <section className="FourthView">
         <TableSection></TableSection>
+      </section>
+      <section className="ContactForm">
+        <Typography tag="h2">Contact with us</Typography>
+        <ContactForm></ContactForm>
       </section>
     </>
   );
