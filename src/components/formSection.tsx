@@ -43,7 +43,7 @@ export function ContactForm() {
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-lg mx-auto my-9">
+                <div className="space-y-8 max-w-lg mx-auto my-9">
                     <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem>
                             <FormLabel>Name</FormLabel>
@@ -74,8 +74,8 @@ export function ContactForm() {
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" className="w-full" disabled={isSent}> {isSent ? "Alredy sent" : "Submit"}</Button>
-                </form>
+                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={isSent}> {isSent ? "Alredy sent" : "Submit"}</Button>
+                </div>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <AlertDialogContent className="max-w-lg w-full mx-auto p-4 sm:p-6 md:p-8 rounded-lg bg-white shadow-md">
