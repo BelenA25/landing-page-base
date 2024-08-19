@@ -9,11 +9,12 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { createClient } from '@/utils/supabase/client';
 import { useState } from "react"
+import InputMask from "react-input-mask";
 
 const formSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters long").max(50, "Name cannot exceed 50 characters"),
     email: z.string().email("Invalid email address"),
-    phone: z.string().regex(/^\(\+591\)\s[67]\d{7}$/, "Phone number must be in the format (+591) XXXXXXXX")
+    phone: z.string().regex(/^\(\+591\)\s[67]\d{7}$/, "The phone number must start with (+591), begin with 7 or 6, and contain exactly 8 digits."),
 })
 
 export function ContactForm() {
@@ -22,7 +23,7 @@ export function ContactForm() {
         resolver: zodResolver(formSchema),
     });
     const onSubmit = async (data: any) => {
-        console.log(data);
+        setIsSent(false);
 
         const { error } = await supabase
             .from('Client')
@@ -68,13 +69,15 @@ export function ContactForm() {
                         <FormItem>
                             <FormLabel>Phone number</FormLabel>
                             <FormControl>
-                                <Input placeholder="(+591) XXXXXX" {...field} />
+                                <InputMask mask="(+999) 99999999" value={field.value} onChange={field.onChange}>
+                                    {(inputProps: any) => <Input placeholder="(+591) XXXXXXXX" {...inputProps} />}
+                                </InputMask>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={isSent}> {form.formState.isSubmitting ? "Sending..." : isSent ? "Alredy Sent" : "Submit"}</Button>
+                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={form.formState.isSubmitting || isSent}> {form.formState.isSubmitting ? "Submitting..." : isSent ? "Alredy Sent" : "Submit"}</Button>
                 </div>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
