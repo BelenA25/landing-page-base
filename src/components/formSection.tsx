@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
-import { Input } from "@/components/ui/input"
+import { Input, InputProps } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { createClient } from '@/utils/supabase/client';
 import { useState } from "react"
 import InputMask from "react-input-mask";
+import React from "react"
 
 const formSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters long").max(50, "Name cannot exceed 50 characters"),
@@ -17,6 +18,12 @@ const formSchema = z.object({
     phone: z.string().regex(/^\(\+591\)\s[67]\d{7}$/, "The phone number must start with (+591), begin with 7 or 6, and contain exactly 8 digits."),
     question: z.string().min(10, "Your question must be at least 10 characters long").max(500, "Your question cannot exceed 500 characters"),
 })
+
+const MaskedInput = React.forwardRef<HTMLInputElement, any>((props, ref) => (
+    <InputMask {...props} ref={ref}>
+        {(inputProps: React.JSX.IntrinsicAttributes & InputProps & React.RefAttributes<HTMLInputElement>) => <Input {...inputProps} />}
+    </InputMask>
+));
 
 export function ContactForm() {
     const supabase = createClient();
@@ -70,9 +77,11 @@ export function ContactForm() {
                         <FormItem>
                             <FormLabel>Phone number</FormLabel>
                             <FormControl>
-                                <InputMask mask="(+999) 99999999" value={field.value} onChange={field.onChange}>
-                                    {(inputProps: any) => <Input placeholder="(+591) XXXXXXXX" {...inputProps} />}
-                                </InputMask>
+                                <MaskedInput
+                                    mask="(+999) 99999999"
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
