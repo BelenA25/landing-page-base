@@ -15,6 +15,7 @@ const formSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters long").max(50, "Name cannot exceed 50 characters"),
     email: z.string().email("Invalid email address"),
     phone: z.string().regex(/^\(\+591\)\s[67]\d{7}$/, "The phone number must start with (+591), begin with 7 or 6, and contain exactly 8 digits."),
+    question: z.string().min(10, "Your question must be at least 10 characters long").max(500, "Your question cannot exceed 500 characters"),
 })
 
 export function ContactForm() {
@@ -28,7 +29,7 @@ export function ContactForm() {
         const { error } = await supabase
             .from('Client')
             .insert([
-                { name: data.name, email: data.email, phoneNumber: data.phone }
+                { name: data.name, email: data.email, phoneNumber: data.phone, question: data.question }
             ]);
 
         if (error) {
@@ -72,6 +73,16 @@ export function ContactForm() {
                                 <InputMask mask="(+999) 99999999" value={field.value} onChange={field.onChange}>
                                     {(inputProps: any) => <Input placeholder="(+591) XXXXXXXX" {...inputProps} />}
                                 </InputMask>
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField control={form.control} name="question" render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Your question</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Write here your question..." {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
