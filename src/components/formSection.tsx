@@ -74,7 +74,7 @@ export function ContactForm() {
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={isSent}> {isSent ? "Alredy sent" : "Submit"}</Button>
+                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={isSent}> {form.formState.isSubmitting ? "Sending..." : isSent ? "Sent" : "Submit"}</Button>
                 </div>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
