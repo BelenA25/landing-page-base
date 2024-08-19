@@ -32,12 +32,14 @@ export function ContactForm() {
 
         if (error) {
             console.error("Error inserting data:", error.message);
+            setIsSent(false);
         } else {
             setIsDialogOpen(true);
+            setIsSent(true);
         }
     };
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-
+    const [isSent, setIsSent] = useState(false);
     return (
         <>
             <Form {...form}>
@@ -72,7 +74,7 @@ export function ContactForm() {
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" className="w-full">Submit</Button>
+                    <Button type="submit" className="w-full" disabled={isSent}> {isSent ? "Alredy sent" : "Submit"}</Button>
                 </form>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
