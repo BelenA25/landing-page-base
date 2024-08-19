@@ -11,6 +11,8 @@ import { createClient } from '@/utils/supabase/client';
 import { useState } from "react"
 import InputMask from "react-input-mask";
 import React from "react"
+import { FaSpinner } from 'react-icons/fa';
+
 
 const formSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters long").max(50, "Name cannot exceed 50 characters"),
@@ -39,21 +41,26 @@ export function ContactForm() {
     });
     const onSubmit = async (data: any) => {
         setIsSent(false);
+        setIsLoading(true);
 
-        const { error } = await supabase
-            .from('Client')
-            .insert([
-                { name: data.name, email: data.email, phoneNumber: data.phone, question: data.question }
-            ]);
+        setTimeout(async () => {
+            const { error } = await supabase
+                .from('Client')
+                .insert([
+                    { name: data.name, email: data.email, phoneNumber: data.phone, question: data.question }
+                ]);
 
-        if (error) {
-            console.error("Error inserting data:", error.message);
-            setIsSent(false);
-        } else {
-            setIsDialogOpen(true);
-            setIsSent(true);
-            form.reset();
-        }
+            if (error) {
+                console.error("Error inserting data:", error.message);
+                setIsSent(false);
+            } else {
+                setIsDialogOpen(true);
+                setIsSent(true);
+                form.reset();
+            }
+
+            setIsLoading(false);
+        }, 1000);
     };
     const handleDialogClose = () => {
         setIsDialogOpen(false);
@@ -62,6 +69,7 @@ export function ContactForm() {
     };
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isSent, setIsSent] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     return (
         <>
             <Form {...form}>
@@ -110,7 +118,10 @@ export function ContactForm() {
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" className="w-full" onClick={form.handleSubmit(onSubmit)} disabled={form.formState.isSubmitting || isSent}> {form.formState.isSubmitting ? "Submitting..." : isSent ? "Alredy Sent" : "Submit"}</Button>
+                    <Button type="submit" className="w-full flex justify-center items-center" onClick={form.handleSubmit(onSubmit)} disabled={form.formState.isSubmitting || isSent}>
+                        {isLoading ? <FaSpinner className="animate-spin mr-2 h-5 w-5" /> : null}
+                        {form.formState.isSubmitting ? "Submitting..." : isSent ? "Already Sent" : "Submit"}
+                    </Button>
                 </div>
             </Form>
             <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
