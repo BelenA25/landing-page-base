@@ -26,6 +26,7 @@ const MaskedInput = React.forwardRef<HTMLInputElement, any>((props, ref) => (
 ));
 
 export function ContactForm() {
+    MaskedInput.displayName = "MaskedInput";
     const supabase = createClient();
     const form = useForm({
         resolver: zodResolver(formSchema),
