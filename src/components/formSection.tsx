@@ -30,6 +30,12 @@ export function ContactForm() {
     const supabase = createClient();
     const form = useForm({
         resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+            email: "",
+            phone: "",
+            question: ""
+        }
     });
     const onSubmit = async (data: any) => {
         setIsSent(false);
@@ -46,7 +52,13 @@ export function ContactForm() {
         } else {
             setIsDialogOpen(true);
             setIsSent(true);
+            form.reset();
         }
+    };
+    const handleDialogClose = () => {
+        setIsDialogOpen(false);
+        setIsSent(false);
+        form.reset();
     };
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isSent, setIsSent] = useState(false);
@@ -110,7 +122,7 @@ export function ContactForm() {
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <Button onClick={() => setIsDialogOpen(false)}>
+                        <Button onClick={handleDialogClose}>
                             Close
                         </Button>
                     </AlertDialogFooter>
