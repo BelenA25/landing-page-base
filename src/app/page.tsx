@@ -10,11 +10,11 @@ import { Metadata } from "next";
 import { ContactForm } from "@/components/formSection";
 
 const iconUrls = [
-  "/assets/icon1.jpg",
-  "/assets/icon2.jpg",
-  "/assets/icon3.jpg",
-  "/assets/icon4.jpg",
-  "/assets/icon5.jpg"
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/640px-Facebook_Messenger_logo_2020.svg.png",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png",
+  "https://cdn.pixabay.com/photo/2015/08/03/13/58/whatsapp-873316_640.png",
+  "https://logos-world.net/wp-content/uploads/2023/08/X-Logo.png"
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,7 +42,7 @@ export default async function Home() {
         <Typography tag="h2" fontWeight="bold">This is the first tittle</Typography>
         <Typography tag="p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, aut obcaecati tempora, dicta vitae, atque sequi voluptas non praesentium labore iste officiis! Adipisci asperiores magnam a consequatur blanditiis, velit ducimus.</Typography>
         <div className="flex justify-center my-4">
-          <Image src="/assets/computer.png" alt="Computer" width={400} height={100} className="object-contain" />
+          <Image src="https://freesvg.org/img/metalmarious_Laptop.png" alt="Computer" width={400} height={100} className="object-contain" />
         </div>
         <CallToAction></CallToAction>
         <Typography tag="h2" fontWeight="bold">This title belongs to the icon carousel</Typography>

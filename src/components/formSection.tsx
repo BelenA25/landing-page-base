@@ -78,7 +78,7 @@ export function ContactForm() {
                         <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="John Smith" {...field} />
+                                <Input placeholder="Your name" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
