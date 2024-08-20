@@ -5,7 +5,7 @@ const nextConfig = {
         'cdn.pixabay.com',
         'freesvg.org',
         'upload.wikimedia.org',
-        'logos-world.net',
+        'logos-world.net'
       ],
     },
     async headers() {
@@ -19,6 +19,7 @@ const nextConfig = {
         base-uri 'self';
         form-action 'self';
         frame-ancestors 'none';
+        frame-src 'self' https://www.youtube.com/;
         upgrade-insecure-requests;
       `;
   
