@@ -11,6 +11,7 @@ const nextConfig = {
     async headers() {
       const cspHeader = `
         default-src 'self';
+        connect-src 'self' https://idcvxomslmduieauudjt.supabase.co;
         script-src 'self' 'unsafe-eval' 'unsafe-inline';
         style-src 'self' 'unsafe-inline';
         img-src 'self' blob: data:;
